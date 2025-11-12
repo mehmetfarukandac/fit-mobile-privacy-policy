@@ -1,0 +1,61 @@
+:root{
+  /* Light theme aligned with app accent color */
+  --bg: #f7f7fb;
+  --bg-soft: #ffffff;
+  --card: #ffffff;
+  --card-border: #eaecf0;
+  --text: #0b0b14;
+  --text-dim: #5b5b70;
+  --accent: #E20032;
+  --shadow: 0 6px 18px rgba(18, 18, 28, 0.06);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:
+    radial-gradient(600px 300px at 10% -10%, #fff 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(800px 500px at 120% 10%, #fff 0%, rgba(255,255,255,0) 70%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+.container{max-width:980px;margin:0 auto;padding:24px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand__logo{width:36px;height:36px;border-radius:10px;background:var(--accent);display:grid;place-items:center;font-weight:800;color:#fff}
+.brand__meta{display:flex;flex-direction:column;line-height:1.1}
+.brand__meta span{font-size:12px;color:var(--text-dim)}
+.nav a{color:var(--text-dim);text-decoration:none;margin-left:16px;font-weight:600}
+.nav a:hover{color:var(--accent)}
+main{display:grid;gap:20px}
+.card{
+  background: var(--card);
+  border:1px solid var(--card-border);
+  border-radius:16px;
+  padding:24px 20px;
+  box-shadow: var(--shadow);
+}
+.card--muted{opacity:.95}
+h2{margin:0 0 12px 0;font-size:22px;letter-spacing:.2px}
+p{margin:6px 0 12px 0;color:var(--text-dim)}
+.list{margin:8px 0 0 18px;color:var(--text-dim)}
+.list li{margin:8px 0}
+.grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));padding-left:18px;margin:8px 0;color:var(--text-dim);line-height:1.6}
+details{border-top:1px solid var(--card-border)}
+details:first-of-type{border-top:none}
+summary{cursor:pointer;padding:12px 0;color:var(--text);font-weight:700;list-style:none}
+summary::-webkit-details-marker{display:none}
+.content{padding:0 0 14px 0;color:var(--text-dim);line-height:1.7}
+.steps{margin:10px 0 0 18px;color:var(--text-dim)}
+.code{
+  background:#f4f6fb;border:1px solid var(--card-border);
+  padding:10px;border-radius:10px;overflow:auto;color:#1f2430
+}
+.footer{display:flex;justify-content:space-between;align-items:center;color:var(--text-dim);font-size:13px;padding-top:8px}
+@media (max-width:720px){
+  .nav{display:none}
+}
+
+
