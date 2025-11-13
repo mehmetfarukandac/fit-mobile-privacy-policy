@@ -14,6 +14,10 @@
       .legal h3{margin:24px 0 8px 0;font-size:18px}
       .legal p, .legal li{color:var(--text-dim)}
       .legal ul{margin:6px 0 0 18px}
+      .lang-icon-btn{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 10px;border:1px solid var(--card-border);border-radius:999px;background:#ffffff;color:#E20032;cursor:pointer}
+      .lang-icon-btn:hover{background:#f9fafc}
+      .lang-icon-btn:focus-visible{outline:2px solid #8aa3ff;outline-offset:1px}
+      .lang-code{font-weight:700;font-size:12px;letter-spacing:.5px}
     </style>
   </head>
   <body>
@@ -22,78 +26,242 @@
         <div class="brand__logo" aria-hidden="true">B</div>
         <div class="brand__meta">
           <strong>FIT BULLK</strong>
-          <span>Gizlilik Politikası</span>
+          <span id="brandSubtitle">Gizlilik Politikası</span>
         </div>
       </div>
       <nav class="nav">
-        <a href="./support/index.html">Destek</a>
+        <a id="navSupport" href="./support/index.html">Destek</a>
+        <button id="langToggleIcon" class="lang-icon-btn" type="button" aria-label="Dili değiştir" title="Türkçe">
+          <svg id="langIcon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span id="langCode" class="lang-code">TR</span>
+        </button>
       </nav>
     </header>
 
     <main class="container narrow">
       <section class="card legal">
-        <h2>Gizlilik Politikası</h2>
-        <p class="muted">Son güncelleme: <span id="updatedAt"></span></p>
+        <h2 id="pageTitle">Gizlilik Politikası</h2>
+        <p class="muted"><span id="labelUpdatedAt">Son güncelleme:</span> <span id="updatedAt"></span></p>
 
-        <h3>1. Giriş</h3>
-        <p>FIT BULLK olarak, kişisel verilerinizin gizliliğine ve güvenliğine önem veriyoruz. Bu politika; uygulamayı kullanırken hangi verileri topladığımızı, nasıl işlediğimizi ve haklarınızı açıklar.</p>
+        <div id="policyContent">
+          <h3>1. Giriş</h3>
+          <p>FIT BULLK olarak, kişisel verilerinizin gizliliğine ve güvenliğine önem veriyoruz. Bu politika; uygulamayı kullanırken hangi verileri topladığımızı, nasıl işlediğimizi ve haklarınızı açıklar.</p>
 
-        <h3>2. Topladığımız Veriler</h3>
-        <ul>
-          <li>Hesap bilgileri: ad/soyad, kullanıcı adı, e‑posta, profil görseli.</li>
-          <li>Kullanım verileri: uygulama içi etkileşimler, antrenman geçmişi, egzersiz kayıtları.</li>
-          <li>Cihaz bilgileri: cihaz modeli, işletim sistemi versiyonu, dil ve bölge bilgisi.</li>
-          <li>İsteğe bağlı veriler: geri bildirimler, destek talepleri, makale içerikleri vb.</li>
-        </ul>
+          <h3>2. Topladığımız Veriler</h3>
+          <ul>
+            <li>Hesap bilgileri: ad/soyad, kullanıcı adı, e‑posta, profil görseli.</li>
+            <li>Kullanım verileri: uygulama içi etkileşimler, antrenman geçmişi, egzersiz kayıtları.</li>
+            <li>Cihaz bilgileri: cihaz modeli, işletim sistemi versiyonu, dil ve bölge bilgisi.</li>
+            <li>İsteğe bağlı veriler: geri bildirimler, destek talepleri, makale içerikleri vb.</li>
+          </ul>
 
-        <h3>3. Verilerin Kullanım Amaçları</h3>
-        <ul>
-          <li>Hizmetlerin sunulması ve geliştirilmesi (antrenmanlar, egzersiz kütüphanesi, istatistikler).</li>
-          <li>Hesap ve güvenlik (kimlik doğrulama, e‑posta doğrulama, kötüye kullanımın önlenmesi).</li>
-          <li>Performans ve deneyim iyileştirme (hata ayıklama, analitik).</li>
-          <li>Yasal yükümlülüklerin yerine getirilmesi (KVKK/GDPR kapsamındaki gereklilikler).</li>
-        </ul>
+          <h3>3. Verilerin Kullanım Amaçları</h3>
+          <ul>
+            <li>Hizmetlerin sunulması ve geliştirilmesi (antrenmanlar, egzersiz kütüphanesi, istatistikler).</li>
+            <li>Hesap ve güvenlik (kimlik doğrulama, e‑posta doğrulama, kötüye kullanımın önlenmesi).</li>
+            <li>Performans ve deneyim iyileştirme (hata ayıklama, analitik).</li>
+            <li>Yasal yükümlülüklerin yerine getirilmesi (KVKK/GDPR kapsamındaki gereklilikler).</li>
+          </ul>
 
-        <h3>4. Saklama Süresi</h3>
-        <p>Veriler, amaçla sınırlı ve gerekli olduğu süre boyunca saklanır. Hesabınızı sildiğinizde, yasal yükümlülükler hariç olmak üzere kişisel verileriniz makul süre içinde silinir veya anonimleştirilir.</p>
+          <h3>4. Saklama Süresi</h3>
+          <p>Veriler, amaçla sınırlı ve gerekli olduğu süre boyunca saklanır. Hesabınızı sildiğinizde, yasal yükümlülükler hariç olmak üzere kişisel verileriniz makul süre içinde silinir veya anonimleştirilir.</p>
 
-        <h3>5. Üçüncü Taraflarla Paylaşım</h3>
-        <p>Verileriniz; yalnızca hizmetin sunumu için gerekli altyapı sağlayıcıları (barındırma, bildirim, analitik) ile ve yasal gereklilikler kapsamında yetkili mercilerle paylaşılabilir. Ticari amaçlarla üçüncü taraflara satılmaz.</p>
+          <h3>5. Üçüncü Taraflarla Paylaşım</h3>
+          <p>Verileriniz; yalnızca hizmetin sunumu için gerekli altyapı sağlayıcıları (barındırma, bildirim, analitik) ile ve yasal gereklilikler kapsamında yetkili mercilerle paylaşılabilir. Ticari amaçlarla üçüncü taraflara satılmaz.</p>
 
-        <h3>6. Güvenlik</h3>
-        <p>Verileriniz, endüstri standartlarına uygun teknik ve idari tedbirlerle korunur. Ancak internet üzerinden yapılan hiçbir aktarımın %100 güvenli olduğunu garanti edemeyiz.</p>
+          <h3>6. Güvenlik</h3>
+          <p>Verileriniz, endüstri standartlarına uygun teknik ve idari tedbirlerle korunur. Ancak internet üzerinden yapılan hiçbir aktarımın %100 güvenli olduğunu garanti edemeyiz.</p>
 
-        <h3>7. Haklarınız</h3>
-        <ul>
-          <li>Erişim ve düzeltme: Profil ve hesap ayarları üzerinden bilgilerinizi görüntüleyebilir ve güncelleyebilirsiniz.</li>
-          <li>Veri taşıma ve silme: Uygulamadaki “Hesabı Dışa Aktar” ve “Hesap Sil” seçeneklerini kullanabilirsiniz.</li>
-          <li>Açık rıza ve onay: Bildirim ve pazarlama izinlerini dilediğiniz an değiştirebilirsiniz.</li>
-        </ul>
+          <h3>7. Haklarınız</h3>
+          <ul>
+            <li>Erişim ve düzeltme: Profil ve hesap ayarları üzerinden bilgilerinizi görüntüleyebilir ve güncelleyebilirsiniz.</li>
+            <li>Veri taşıma ve silme: Uygulamadaki “Hesabı Dışa Aktar” ve “Hesap Sil” seçeneklerini kullanabilirsiniz.</li>
+            <li>Açık rıza ve onay: Bildirim ve pazarlama izinlerini dilediğiniz an değiştirebilirsiniz.</li>
+          </ul>
 
-        <h3>8. Çocukların Gizliliği</h3>
-        <p>Uygulama, 13 yaş altı bireylere yönelik değildir. Bu kapsamdaki hesaplar tespit edildiğinde kapatılır.</p>
+          <h3>8. Çocukların Gizliliği</h3>
+          <p>Uygulama, 13 yaş altı bireylere yönelik değildir. Bu kapsamdaki hesaplar tespit edildiğinde kapatılır.</p>
 
-        <h3>9. Uluslararası Aktarım</h3>
-        <p>Veriler, hizmet sağlayıcılarımızın bulunduğu ülkelerde işlenebilir. Bu durumlarda yürürlükteki veri koruma mevzuatına uygun önlemler uygulanır.</p>
+          <h3>9. Uluslararası Aktarım</h3>
+          <p>Veriler, hizmet sağlayıcılarımızın bulunduğu ülkelerde işlenebilir. Bu durumlarda yürürlükteki veri koruma mevzuatına uygun önlemler uygulanır.</p>
 
-        <h3>10. Değişiklikler</h3>
-        <p>Bu politika güncellenebilir. Güncellemeleri bu sayfada yayınlarız ve “son güncelleme” tarihini revize ederiz.</p>
+          <h3>10. Değişiklikler</h3>
+          <p>Bu politika güncellenebilir. Güncellemeleri bu sayfada yayınlarız ve “son güncelleme” tarihini revize ederiz.</p>
 
-        <h3>11. İletişim</h3>
-        <p>Her türlü soru ve talebiniz için <a href="mailto:support@andacware.com">support@andacware.com</a> adresinden bize ulaşabilirsiniz.</p>
+          <h3>11. İletişim</h3>
+          <p>Her türlü soru ve talebiniz için <a href="mailto:support@andacware.com">support@andacware.com</a> adresinden bize ulaşabilirsiniz.</p>
 
-        <p class="muted"><span class="badge">FIT BULLK</span> | Gizlilik ve veri güvenliği; uygulama içindeki yasal belgeler bölümünde de görüntülenebilir.</p>
+          <p class="muted"><span class="badge">FIT BULLK</span> | Gizlilik ve veri güvenliği; uygulama içindeki yasal belgeler bölümünde de görüntülenebilir.</p>
+        </div>
       </section>
     </main>
 
     <footer class="container footer">
       <span>© <span id="y"></span> FIT BULLK</span>
-      <a href="./support/index.html">Destek</a>
+      <a id="footerSupport" href="./support/index.html">Destek</a>
     </footer>
     <script>
-      const d = new Date();
-      document.getElementById("y").textContent = d.getFullYear();
-      document.getElementById("updatedAt").textContent = d.toLocaleDateString('tr-TR');
+      (function(){
+        const strings = {
+          tr: {
+            htmlLang: 'tr',
+            docTitle: 'Gizlilik Politikası | FIT BULLK',
+            metaDescription: 'FIT BULLK Gizlilik Politikası',
+            brandSubtitle: 'Gizlilik Politikası',
+            navSupport: 'Destek',
+            footerSupport: 'Destek',
+            pageTitle: 'Gizlilik Politikası',
+            updatedAtLabel: 'Son güncelleme:',
+            policyHtml: `
+              <h3>1. Giriş</h3>
+              <p>FIT BULLK olarak, kişisel verilerinizin gizliliğine ve güvenliğine önem veriyoruz. Bu politika; uygulamayı kullanırken hangi verileri topladığımızı, nasıl işlediğimizi ve haklarınızı açıklar.</p>
+              <h3>2. Topladığımız Veriler</h3>
+              <ul>
+                <li>Hesap bilgileri: ad/soyad, kullanıcı adı, e‑posta, profil görseli.</li>
+                <li>Kullanım verileri: uygulama içi etkileşimler, antrenman geçmişi, egzersiz kayıtları.</li>
+                <li>Cihaz bilgileri: cihaz modeli, işletim sistemi versiyonu, dil ve bölge bilgisi.</li>
+                <li>İsteğe bağlı veriler: geri bildirimler, destek talepleri, makale içerikleri vb.</li>
+              </ul>
+              <h3>3. Verilerin Kullanım Amaçları</h3>
+              <ul>
+                <li>Hizmetlerin sunulması ve geliştirilmesi (antrenmanlar, egzersiz kütüphanesi, istatistikler).</li>
+                <li>Hesap ve güvenlik (kimlik doğrulama, e‑posta doğrulama, kötüye kullanımın önlenmesi).</li>
+                <li>Performans ve deneyim iyileştirme (hata ayıklama, analitik).</li>
+                <li>Yasal yükümlülüklerin yerine getirilmesi (KVKK/GDPR kapsamındaki gereklilikler).</li>
+              </ul>
+              <h3>4. Saklama Süresi</h3>
+              <p>Veriler, amaçla sınırlı ve gerekli olduğu süre boyunca saklanır. Hesabınızı sildiğinizde, yasal yükümlülükler hariç olmak üzere kişisel verileriniz makul süre içinde silinir veya anonimleştirilir.</p>
+              <h3>5. Üçüncü Taraflarla Paylaşım</h3>
+              <p>Verileriniz; yalnızca hizmetin sunumu için gerekli altyapı sağlayıcıları (barındırma, bildirim, analitik) ile ve yasal gereklilikler kapsamında yetkili mercilerle paylaşılabilir. Ticari amaçlarla üçüncü taraflara satılmaz.</p>
+              <h3>6. Güvenlik</h3>
+              <p>Verileriniz, endüstri standartlarına uygun teknik ve idari tedbirlerle korunur. Ancak internet üzerinden yapılan hiçbir aktarımın %100 güvenli olduğunu garanti edemeyiz.</p>
+              <h3>7. Haklarınız</h3>
+              <ul>
+                <li>Erişim ve düzeltme: Profil ve hesap ayarları üzerinden bilgilerinizi görüntüleyebilir ve güncelleyebilirsiniz.</li>
+                <li>Veri taşıma ve silme: Uygulamadaki “Hesabı Dışa Aktar” ve “Hesap Sil” seçeneklerini kullanabilirsiniz.</li>
+                <li>Açık rıza ve onay: Bildirim ve pazarlama izinlerini dilediğiniz an değiştirebilirsiniz.</li>
+              </ul>
+              <h3>8. Çocukların Gizliliği</h3>
+              <p>Uygulama, 13 yaş altı bireylere yönelik değildir. Bu kapsamdaki hesaplar tespit edildiğinde kapatılır.</p>
+              <h3>9. Uluslararası Aktarım</h3>
+              <p>Veriler, hizmet sağlayıcılarımızın bulunduğu ülkelerde işlenebilir. Bu durumlarda yürürlükteki veri koruma mevzuatına uygun önlemler uygulanır.</p>
+              <h3>10. Değişiklikler</h3>
+              <p>Bu politika güncellenebilir. Güncellemeleri bu sayfada yayınlarız ve “son güncelleme” tarihini revize ederiz.</p>
+              <h3>11. İletişim</h3>
+              <p>Her türlü soru ve talebiniz için <a href="mailto:support@andacware.com">support@andacware.com</a> adresinden bize ulaşabilirsiniz.</p>
+              <p class="muted"><span class="badge">FIT BULLK</span> | Gizlilik ve veri güvenliği; uygulama içindeki yasal belgeler bölümünde de görüntülenebilir.</p>
+            `
+          },
+          en: {
+            htmlLang: 'en',
+            docTitle: 'Privacy Policy | FIT BULLK',
+            metaDescription: 'FIT BULLK Privacy Policy',
+            brandSubtitle: 'Privacy Policy',
+            navSupport: 'Support',
+            footerSupport: 'Support',
+            pageTitle: 'Privacy Policy',
+            updatedAtLabel: 'Last updated:',
+            policyHtml: `
+              <h3>1. Introduction</h3>
+              <p>As FIT BULLK, we care about the privacy and security of your personal data. This policy explains which data we collect while you use the app, how we process it, and your rights.</p>
+              <h3>2. Data We Collect</h3>
+              <ul>
+                <li>Account information: name/surname, username, email, profile image.</li>
+                <li>Usage data: in‑app interactions, workout history, exercise records.</li>
+                <li>Device information: device model, operating system version, language and region.</li>
+                <li>Optional data: feedback, support requests, article contents, etc.</li>
+              </ul>
+              <h3>3. Purposes of Use</h3>
+              <ul>
+                <li>Providing and improving the services (workouts, exercise library, statistics).</li>
+                <li>Account and security (authentication, email verification, prevention of abuse).</li>
+                <li>Performance and experience improvement (debugging, analytics).</li>
+                <li>Fulfilling legal obligations (requirements under KVKK/GDPR).</li>
+              </ul>
+              <h3>4. Retention Period</h3>
+              <p>Data are retained only for as long as necessary for the stated purposes. When you delete your account, except for legal obligations, your personal data are deleted or anonymized within a reasonable time.</p>
+              <h3>5. Sharing with Third Parties</h3>
+              <p>Your data may be shared only with infrastructure providers necessary to deliver the service (hosting, notifications, analytics) and with competent authorities as required by law. It is not sold to third parties for commercial purposes.</p>
+              <h3>6. Security</h3>
+              <p>Your data are protected with technical and organizational measures in line with industry standards. However, no transmission over the internet can be guaranteed to be 100% secure.</p>
+              <h3>7. Your Rights</h3>
+              <ul>
+                <li>Access and rectification: You can view and update your information via profile and account settings.</li>
+                <li>Data portability and deletion: Use the “Export Account” and “Delete Account” options in the app.</li>
+                <li>Consent and preferences: You can change notification and marketing permissions at any time.</li>
+              </ul>
+              <h3>8. Children’s Privacy</h3>
+              <p>The app is not directed to individuals under 13. Accounts within this scope are closed when detected.</p>
+              <h3>9. International Transfers</h3>
+              <p>Data may be processed in countries where our service providers are located. In such cases, safeguards in accordance with applicable data protection laws are applied.</p>
+              <h3>10. Changes</h3>
+              <p>This policy may be updated. We will publish updates on this page and revise the “last updated” date.</p>
+              <h3>11. Contact</h3>
+              <p>For any questions or requests, please contact us at <a href="mailto:support@andacware.com">support@andacware.com</a>.</p>
+              <p class="muted"><span class="badge">FIT BULLK</span> | Privacy and data security can also be viewed in the in‑app legal documents section.</p>
+            `
+          }
+        };
+
+        function detectLangFromUrl() {
+          try {
+            var path = window.location.pathname.replace(/\/+$/, '');
+            if (/\/en$/.test(path)) return 'en';
+            if (/\/tr$/.test(path)) return 'tr';
+          } catch(e) {}
+          return 'tr';
+        }
+
+        function applyLang(lang) {
+          var s = strings[lang] || strings.tr;
+          document.documentElement.setAttribute('lang', s.htmlLang);
+          document.title = s.docTitle;
+          var meta = document.querySelector('meta[name="description"]');
+          if (meta) meta.setAttribute('content', s.metaDescription);
+          var brandSubtitle = document.getElementById('brandSubtitle');
+          if (brandSubtitle) brandSubtitle.textContent = s.brandSubtitle;
+          var navSupport = document.getElementById('navSupport');
+          if (navSupport) navSupport.textContent = s.navSupport;
+          var footerSupport = document.getElementById('footerSupport');
+          if (footerSupport) footerSupport.textContent = s.footerSupport;
+          var pageTitle = document.getElementById('pageTitle');
+          if (pageTitle) pageTitle.textContent = s.pageTitle;
+          var labelUpdatedAt = document.getElementById('labelUpdatedAt');
+          if (labelUpdatedAt) labelUpdatedAt.textContent = s.updatedAtLabel;
+          var policyContent = document.getElementById('policyContent');
+          if (policyContent) policyContent.innerHTML = s.policyHtml;
+          var iconBtn = document.getElementById('langToggleIcon');
+          if (iconBtn) {
+            iconBtn.style.color = (lang === 'tr') ? '#E20032' : '#060126';
+            iconBtn.setAttribute('title', lang === 'tr' ? 'Türkçe' : 'English');
+            iconBtn.setAttribute('aria-label', lang === 'tr' ? 'Dili değiştir (Türkçe)' : 'Change language (English)');
+          }
+          var code = document.getElementById('langCode');
+          if (code) code.textContent = (lang === 'tr') ? 'TR' : 'EN';
+          // date
+          var d = new Date();
+          var yEl = document.getElementById('y');
+          if (yEl) yEl.textContent = d.getFullYear();
+          var upd = document.getElementById('updatedAt');
+          if (upd) upd.textContent = d.toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-GB');
+          window.__currentLang = lang;
+        }
+
+        function toggleLang() {
+          var next = (window.__currentLang === 'tr') ? 'en' : 'tr';
+          applyLang(next);
+        }
+
+        // init
+        var initial = detectLangFromUrl();
+        applyLang(initial);
+
+        var iconBtn = document.getElementById('langToggleIcon');
+        if (iconBtn) iconBtn.addEventListener('click', toggleLang);
+      })();
     </script>
   </body>
   </html>
